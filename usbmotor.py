@@ -46,6 +46,26 @@ dev.set_configuration()
 ret = dev.ctrl_transfer(0xC0, 0x10, 0x0, 0x0, 1)
 print hex(ret[0])   # should return 0x22 but dont know why ?
 
+# ???
+ret = dev.ctrl_transfer(0x40, 0x6, 0x1, 0x0, [])
+    
+time.sleep(1.5)
+
+# head up!
+ret = dev.ctrl_transfer(0x40, 0x31, 0xfff0, 0x0, [])
+time.sleep(1.5)
+# bring head down
+ret = dev.ctrl_transfer(0x40, 0x31, 0xffd0, 0x0, [])
+time.sleep(1.5)
+# up!
+ret = dev.ctrl_transfer(0x40, 0x31, 0xfff0, 0x0, [])
+time.sleep(1.5)
+# down!
+ret = dev.ctrl_transfer(0x40, 0x31, 0xffd0, 0x0, [])
+time.sleep(1.5)
+# up!
+ret = dev.ctrl_transfer(0x40, 0x31, 0xfff0, 0x0, [])
+
 while True:
     # Get accel data
     ret = dev.ctrl_transfer(0xC0, 0x32, 0x0, 0x0, 10)
