@@ -1,3 +1,5 @@
+# some example code from pyusb, otherwise its all public domain. enjoy & keep hackin! - ladyada
+
 import usb.core
 import usb.util
 import sys
